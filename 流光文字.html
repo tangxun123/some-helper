@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      ._borderWrap {
+        width: 180px;
+        height: 150px;
+        position: absolute;
+        left: 23%;
+        top: 25%;
+      }
+      ._border {
+        line-height: 145px;
+        text-align: center;
+        font-size: 40px;
+        font-weight: bolder;
+        /* 制作流光文字，单单使用text-fill-color可是不行呀，还需要结合css3的 animation 来实现动画效果 */
+        /* 制作流光文字有几个要点：text-fill-color一般设置为transparent（透明色），
+        然后利用background-image和渐变颜色来设置文字的背景色，利用background-clip来实现文字的截取，再利用background-size设置扩大背景，
+        已使运用animation的时候能达到动画的效果等。 */
+        -webkit-text-fill-color: transparent;
+        background-image: -webkit-linear-gradient(
+          left,
+          #129835,
+          #ece648 25%,
+          #129835 50%,
+          #f9e92b 75%,
+          rgb(40, 150, 38)
+        );
+        background-size: 200%, 100%;
+        -webkit-background-clip: text;
+        -webkit-animation: word 5s linear infinite;
+      }
+      @keyframes word {
+        0% {
+          background-position: 0 0;
+        }
+        100% {
+          background-position: -100% 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="_borderWrap">
+      <div class="_border">你的名字</div>
+    </div>
+  </body>
+</html>

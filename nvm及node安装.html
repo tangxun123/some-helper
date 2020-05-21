@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    1. nvm介绍
+    nvm是一个node版本管理器，类似与Python中的 Anaconda 、virtural-env。
+
+    2. 安装
+    nvm的github仓库地址为 https://github.com/creationix/nvm
+
+    项目的说明文档中列出了多种安装方式，选用其中一种进行安装。
+
+    在终端执行以下命令，将自动进行nvm的安装：
+    wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+    nvm将被安装到 $HOME/.nvm 目录中。
+
+    安装完成后，执行以下命令查看是否安装完成：
+    nvm --version
+    出现 Command 'nvm' not found 的解决办法：
+    关掉当前终端并重新打开一个新的窗口，问题解决。
+    3. 使用
+        3.1 安装node
+        查看所有可供安装的node版本：
+        nvm ls-remote
+        选择自己想要的版本进行安装，本人选用 v12.13.0 安装，
+        nvm install v12.13.0
+        输入以上命令后，自动进行node下载和安装。
+
+        查看本地已安装的node：
+        nvm ls
+        其他nvm的相关指令，参见 nvm --help
+
+        3.2 npm的更新
+        安装完node后，默认会安装 npm，但不是最新版本，需要手动更新。
+
+        # 查看版本
+        npm -v
+        # 更新到最新版本
+        npm install -g npm
+        # 更新到指定版本，@版本号
+        npm -g install npm@5.6.0
+
+        3.3 修改npm包的全局安装位置
+        查看 npm 的配置
+
+        npm config ls
+        prefix 为当前包的全局安装位置，为了方便管理，设置为自己的路径
+
+        npm config set prefix "new_path"
+
+        3.4 修改npm为国内镜像
+        npm config set registry "http://registry.npm.taobao.org/"
+</body>
+</html>

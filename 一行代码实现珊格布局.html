@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .contain {
+        text-align: center;
+        line-height: 50px;
+        color: white;
+        font-size: 32px;
+        display: grid;
+        /* grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 150px 150px; */
+
+        /* repeat()函数。这是一个强大的指定列和行的方法 */
+        /* grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 150px); */
+
+        /* auto-fit　　替换为自适应数量 */
+        /* 它会尝试在容器中容纳尽可能多的 100px 宽的列。
+        但如果我们将所有列硬写为 100px，我们将永远没法获得所需的弹性，因为它们很难填充整个宽度。正如你在上图看到的，网格通常在右侧留有空白。 */
+        /* grid-template-columns: repeat(auto-fit, 300px);
+        grid-template-rows: repeat(2, 1５0px); */
+
+        /* 为了解决上述问题，我们需要minmax()。我们将 100px 替换为 minmax(100px, 1fr) */
+        grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+        grid-template-rows: repeat(2, 1５0px);
+
+      }
+
+      .contain div {
+        margin: 5px;
+      }
+      .contain div>img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* .contain div:nth-of-type(1) {
+        background-color: aqua;
+      }
+
+      .contain div:nth-of-type(2) {
+        background-color: blueviolet;
+      }
+
+      .contain div:nth-of-type(3) {
+        background-color: bisque;
+      }
+
+      .contain div:nth-of-type(4) {
+        background-color: darkgoldenrod;
+      }
+
+      .contain div:nth-of-type(5) {
+        background-color: aquamarine;
+      }
+
+      .contain div:nth-of-type(6) {
+        background-color: cornflowerblue;
+      } */
+    </style>
+  </head>
+
+  <body>
+    <div class="contain">
+      <div><img src="./1.jpg" alt=""></div>
+      <div><img src="./1.jpg" alt=""></div>
+      <div><img src="./1.jpg" alt=""></div>
+      <div><img src="./1.jpg" alt=""></div>
+      <div><img src="./1.jpg" alt=""></div>
+      <div><img src="./1.jpg" alt=""></div>
+    </div>
+  </body>
+</html>

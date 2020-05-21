@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>404</title>
+    <style>
+        html,body{
+            width: 100%;
+            height: 100%;
+            margin: 0px;
+        }
+        .pageNotImgMain{
+            width: 450px;
+            height: 100%;
+            margin: 0px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center
+        }
+        .pageNotImg{
+            width: 172px;
+            margin-right: 50px;
+        }
+        .pageNotImg>img{
+            width: 162px;
+        }
+        .pageNotText{
+            width: 192px;
+        }
+        .pageNotText>p:nth-of-type(1){
+            color: #333;
+            font-size: 36px;
+            line-height: 47px;
+            margin: 0px;
+        }
+        .pageNotText>p:nth-of-type(2){
+            color: #666;
+            font-size: 16px;
+            line-height: 24px;
+            margin: 4px 0px;
+        }
+        .pageNotText>button{
+            padding: 5px 12px;
+            margin: 15px 0px;
+            color: #fff;
+            background-color: #188cff;
+            border-color: #188cff;
+            cursor: pointer;
+            font-weight: 400;
+            font-size: 14px;
+            border-radius: 4px;
+            outline: none;
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body>
+    <main class="pageNotImgMain">
+        <div class="pageNotImg">
+            <img src="./404.3a0c74ba.png" alt="你访问的页面不存在">
+        </div>
+        <div class="pageNotText">
+            <p>404</p>
+            <p>抱歉，你访问的页面不存在</p>
+            <button class="pageNotBtn" onclick="omePage()">返回首页</button>
+        </div>
+    </main>
+    <script>
+        let btn = document.getElementsByClassName("pageNotBtn");
+        function omePage(){
+            window.location.href = "./chapter1.html" ;
+            // window.location.href = "./ww.html"
+        }
+    </script>
+</body>
+</html>

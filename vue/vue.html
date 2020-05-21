@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style type="text/css">
+      .active {
+        color: #f60; /* 为当前路由点击添加样式类*/
+      }
+    </style>
+  </head>
+  <body>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="./vue-router.js"></script>
+    <div id="example">
+      <span v-for="i in arr" :key="i">{{i}}</span>
+      <br />
+      <input type="text" v-model="num" />
+      <span>{{num}}</span>
+      <router-link to="/Home">Go to home</router-link>
+      <router-link to="/Car">Go to car</router-link>
+      <router-view></router-view>
+    </div>
+    <script type="text/javascript">
+      var Home = Vue.component("Home", {
+        template: "<h2>my Home</h2>"
+      });
+
+      var Car = Vue.component("News", {
+        template: "<h2>my Car{{$route.params.id}}</h2>"
+      });
+
+      /*配置路由*/
+      var routes = [
+        { path: "/home", component: Home },
+        { path: "/car/:id", component: Car },
+        { path: "/*", redirect: "/home" } //重定向
+      ];
+
+      /*实例化路由 相当于一个管理者 来管理路由 */
+      var router = new VueRouter({
+        routes, //接收routes参数
+        linkActiveClass: "active" //点击时添加样式
+      });
+
+      let app = new Vue({
+        el: "#example",
+        data: {
+          arr: [1, 2, 3],
+          num: ""
+        },
+        mounted() {
+          console.log(111);
+        },
+        methods: {}
+      });
+    </script>
+  </body>
+</html>
