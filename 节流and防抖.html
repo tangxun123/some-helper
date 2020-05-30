@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./lodash.js"></script>
+    <button onclick="commonClick()">普通</button>
+    <button onclick="throttleClick()">节流</button>
+    <button onclick="deBounceClick()">防抖</button>
+    <script>
+        // let throttle = document.getElementById("throttle");
+        // console.dir(throttle)
+        function commonClick(){
+            // 直接调用会每点击一次按钮，就输出一次
+            console.log(111);
+        };
+
+        // 节流
+        /*
+        *创建一个节流函数，在 wait 秒内最多执行 func 一次的函数。 
+        *该函数提供一个 cancel 方法取消延迟的函数调用以及 flush 方法立即调用。 
+        *可以提供一个 options 对象决定如何调用 func 方法， options.leading 与|或 options.trailing 决定 wait 前后如何触发。 
+        *func 会传入最后一次传入的参数给这个函数。 随后调用的函数返回是最后一次 func 调用的结果。
+        */
+        // 如果 leading 和 trailing 都设定为 true 则 func 允许 trailing 方式调用的条件为:  在 wait 期间'多次调用'。
+        // _.throttle(func, [wait=0], [options={}]) 默认leading trailing为true
+        let throttleClick = _.throttle(
+            ()=>{console.log(11)}
+            ,2000
+            ,{leading: true, trailing: false}
+        )
+
+
+        // 防抖
+        //  如果 leading 和 trailing 选项为 true, 则 func 允许 trailing 方式调用的条件为: 在 wait 期间'多次调用'防抖方法
+        // _.debounce(func, [wait=0], [options={}]) 默认leading为false trailing为true
+        let deBounceClick = _.debounce(
+            ()=>{console.log(11)}
+            ,2000
+            ,{leading: true, trailing: false}
+        )
+        
+        /**
+        *  节流 "throttle"
+        *
+        *（1）对于键盘事件，当用户键入非常频繁，但我们又必须要在一定时间（阀值）内执行处理函数的时候。例如：一些网页游戏的键盘事件。
+        *（2）对于鼠标移动和窗口滚动，鼠标的移动和窗口的滚动会带来大量的事件，但是在一段时间内又必须看到页面的效果。
+        *   例如：对于可以拖动的div，如果使用debounce，那么div会在拖动停止后突然跳到目标位置；这时就需要使用throttle。
+        */
+
+        /**
+        *  防抖 "throttle"
+        *
+        *（1）对于键盘事件，当用户输入比较频繁的时候，可以通过debounce合并键盘事件处理。例如：需要在用户输入完成时进行字符串校验。
+        *（2）对于ajax请求的情况。例如：当页面下拉超过一定范围就通过ajax请求新的页面内容，这时候可以通过debounce合并ajax请求事件。
+        */
+    </script>
+</body>
+</html>
