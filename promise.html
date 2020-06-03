@@ -8,97 +8,27 @@
   </head>
   <body>
     <script>
-      let arr = [1, 2, 3, 4, 5, 6, 7, 8, 3, 2, 4, 5];
-
-      new Promise((resolve, reject) => {
-        setTimeout(resolve, 2000, "我是执行成功的");
-        // setTimeout(reject, 2000, "我是执行失败的");
-      }).then(val => {
-        console.log(val);
-      },val2=>{
-        console.log(val2);
+      let pro = new Promise((resolve,reject) => {
+        setTimeout(() => {
+          let num = Math.random();
+          console.log(num);
+          if(num > 0.5){
+            let body = document.getElementsByTagName("body")[0];
+            let div = document.createElement("div");
+            body.appendChild(div)
+            resolve(div);
+          }else{
+            reject("获取失败");
+          }
+        }, 2000);
       });
-
-      console.log(Array.from(new Set(arr)));
-
-      let promise = new Promise(function(resolve, reject) {
-        console.log("Promise");
-        resolve();
-      });
-
-      promise.then(function() {
-        console.log("resolved.");
-      });
-
-      console.log("Hi!");
-
-      // let symbol = Symbol('info')
-      // console.log(String(symbol))
-      // console.log(symbol.description)
-
-      // let obj = {a:1,b:2}
-      // let s = Symbol()
-      // console.log(s)
-
-      // let arr = [
-      //     {a:1},{b:2},{c:3},{d:4},{c:1}
-      // ]
-      // let ob1 = {}
-      // arr.forEach(v=>{
-      //     ob1 = Object.assign({},ob1,v)
-      // })
-      // console.log(ob1)
-
-      // let opg = {a:1,b:2,c:3}
-      // let aq = [{a:'rf',e:'ty',c:'ff'}]
-      // aq.forEach(v=>{
-      //     for(let i in v){
-      //         console.log(opg.hasOwnProperty(i))
-      //         if(opg.hasOwnProperty(i)){
-      //             console.log(v[i])
-      //         }
-      //     }
-      // })
-
-      // console.log(opg['a'])
-      // delete opg['a']
-      // console.log(opg)
-
-
-
-    //   let ary1 = [1, 2, 6, 3, 6, -2];
-    //   let theNUm = function(a, b) {
-    //     return a - b;
-    //   };
-    //   ary1.sort(theNUm);
-    //   console.log(ary1.sort(theNUm));
-
-    //   const set = new Set([1, 2, 3, 4, 4]);
-    //   console.log([...set]);
-
-    //   console.log({ a: 1 } === { a: 1 });
-
-    //   let arr1 = ["1", "2", 3, 4, 5];
-    //   let obj22 = { a: 1, b: "2", c: "r" };
-    //   for (let i in obj22) {
-    //     console.log(i);
-    //     console.log(typeof obj22[i]);
-    //   }
-
-    //   const a = [[1, 2], [3, 4]];
-    //   const ws = new WeakSet(a);
-    //   console.log(ws);
-
-    //   let map = new Map();
-    //   map.set(1, "author");
-    //   console.log(map.get(1));
-    //   map.set([{ a: 1 }, 1, [1, 2]]);
-    //   console.log(map.get(1));
-    //   map.clear();
-    //   console.log(map);
-
-    let string = '我'
-    console.log(string.split(','))
+      pro.then((div) => {
+        div.style.width = "100px";
+        div.style.height = "100px";
+        div.style.background = "red";
+      }).catch(error => {
+        console.log(error);
+      })
     </script>
   </body>
 </html>
