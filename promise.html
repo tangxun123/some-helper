@@ -28,6 +28,8 @@
         div.style.background = "red";
       }).catch(error => {
         console.log(error);
+      }).finally(() => {
+        console.log("无论成功与失败都会执行");
       })
     </script>
   </body>

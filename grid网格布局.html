@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .wrapper {
+        margin: 60px;
+
+        /* 声明一个容器 */
+        display: grid;
+
+        /*  声明列的宽度  */
+        /* grid-template-columns:200px 200px 200px; */
+        /* grid-template-columns: 200px auto 200px; */
+        /* grid-template-columns: repeat(3, 200px); */
+        /* grid-template-columns: repeat(auto-fill, 200px); */
+        /* grid-template-columns: 1fr 2fr minmax(300px,3fr); */
+        /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
+        grid-template-columns: 1fr 2fr 200px;
+
+        /*  声明行间距和列间距  */
+        grid-gap: 5px;
+
+        /*  声明行的高度  */
+        /* grid-template-rows: 100px 200px; */
+        grid-auto-rows: 100px;
+
+        /* 定义区域,一个区域由一个或者多个单元格组成 */
+        /* grid-template-areas:
+          ". header  header"
+          "sidebar content content"; */
+      }
+      .wrapper-1 {
+        margin: 60px;
+        display: grid;
+        grid-auto-columns: 200px;
+        grid-auto-flow: column;
+        grid-gap: 5px;
+        grid-template-rows: 100px 100px;
+        /* justify-items: end; */
+      }
+      .wrapper-1 .six {
+        /* 表示位于 行:第二根网格线 列:始于第三根 终于第五根网格线 */
+        /* grid-column: 3/5; */
+        /* grid-column-start: 3;
+        grid-column-end: 5; */
+        /* grid-row: 2; */
+        grid-column-start: span 2;
+      }
+      .wrapper-2 {
+        margin: 60px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(300px, 1fr));
+        grid-auto-flow: column;
+        grid-gap: 5px;
+        grid-template-rows: 400px 400px;
+        /* justify-items: end; */
+      }
+      .wrapper-2 .one{
+          grid-row: 1;
+          grid-column: 1/3;
+      }
+      .wrapper-2 .four{
+          grid-row: 1/3;
+          grid-column: 3;
+      }
+      .one {
+        background: #19caad;
+      }
+      .two {
+        background: #8cc7b5;
+      }
+      .three {
+        background: #d1ba74;
+      }
+      .four {
+        background: #bee7e9;
+      }
+      .five {
+        background: #e6ceac;
+      }
+      .six {
+        background: #ecad9e;
+      }
+      .item {
+        text-align: center;
+        font-size: 200%;
+        color: #fff;
+      }
+      /* .sidebar {
+        grid-area: sidebar;
+      }
+
+      .content {
+        grid-area: content;
+      }
+
+      .header {
+        grid-area: header;
+      } */
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="one item">One</div>
+      <div class="two item">Two</div>
+      <div class="three item">Three</div>
+      <div class="four item">Four</div>
+      <div class="five item">Five</div>
+      <div class="six item">Six</div>
+      <div class="one item">Seven</div>
+      <div class="two item">Eight</div>
+      <div class="three item">Nine</div>
+    </div>
+    <hr />
+    <div class="wrapper-1">
+      <div class="one item">One</div>
+      <div class="two item">Two</div>
+      <div class="three item">Three</div>
+      <div class="four item">Four</div>
+      <div class="five item">Five</div>
+      <div class="six item">Six</div>
+      <div class="one item">Seven</div>
+      <div class="two item">Eight</div>
+      <div class="three item">Nine</div>
+    </div>
+    <hr />
+    <div class="wrapper-2">
+      <div class="one item">One</div>
+      <div class="two item">Two</div>
+      <div class="three item">Three</div>
+      <div class="four item">Four</div>
+    </div>
+  </body>
+</html>
